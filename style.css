@@ -1,11 +1,11 @@
 * {
-    background-color: #222831;
     margin: 0;
     -ms-overflow-style: none;
     scrollbar-width: none;
     overflow-x: hidden;
     overflow: visible;
     scroll-behavior: smooth;
+    user-select: none;
 }
 
 a {
@@ -30,25 +30,24 @@ section {
 }
 
 #landing {
+    background-color: #222831;
     height: 90vh;
 }
 
 #aboutme {
     background-color: #393E46;
-    height: 115vh;
+    height: 110vh;
     z-index: 0;
-    margin-top: -10vh;
 }
 
 #projects {
-    
+    background-color: #222831;
 }
 
 nav {
     width: 100%;
     height: 10vh;
     background-color: white;
-    border-radius: 0 0 15px 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -57,11 +56,15 @@ nav {
     font-weight: bold;
     letter-spacing: 5px;
     z-index: 1;
+    transition: all 1s;
+    position: absolute;
+    bottom: 0vh;
 }
 
 .fixed-nav {
     position: fixed;
     top: 0;
+    border-radius: 0 0 15px 15px;
 }
 
 .socialMediaIcons>a {
@@ -76,12 +79,13 @@ li.nav-item {
     background-color: transparent;
     color: black;
     list-style: none;
+    padding: 0.5rem;
     transition: all 0.5s;
     cursor: pointer;
 }
 
 li.nav-item:hover {
-    transform: translateY(-0.25rem);
+    transform: translateY(-0.15rem);
     letter-spacing: 7px;
 }
 
@@ -111,17 +115,27 @@ h1 {
     width: 50px;
 }
 
-img {
+.logoContainer img {
     width: 250px;
 }
 
 .socialMediaIcons {
     width: 80%;
-    height: 20%;
+    height: 15%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
+    align-items: stretch;
+}
+
+.socialMediaIcons img {
+    width: 2em;
+    padding: 1rem;
+    transition: all 0.5s;
+}
+
+.socialMediaIcons img:hover {
+    width: 3em;
 }
 
 /* For mobile phones: */
@@ -129,6 +143,7 @@ img {
 @media only screen and (max-width: 768px) {
     nav {
         letter-spacing: 2px;
+        bottom: 10vh;
     }    
     li.nav-item:hover {
         letter-spacing: 4px;
