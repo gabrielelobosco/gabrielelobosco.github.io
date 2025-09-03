@@ -1,3 +1,5 @@
+/* General */
+
 * {
     margin: 0;
     -ms-overflow-style: none;
@@ -29,6 +31,11 @@ section {
     justify-content: center;
 }
 
+.visible {
+    opacity: 1 !important;
+    transform: translate(0) !important;
+}
+
 #landing {
     background-color: #222831;
     height: 90vh;
@@ -38,6 +45,9 @@ section {
     background-color: #393E46;
     height: 110vh;
     z-index: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #projects {
@@ -68,7 +78,14 @@ nav {
 }
 
 .socialMediaIcons>a {
-    margin: 1rem;
+    margin: 1.5rem;
+    transition: all 2s;
+}
+
+.socialMediaIcons {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 2s;
 }
 
 .nav-item>a, .nav-item>a>img {
@@ -89,11 +106,18 @@ li.nav-item:hover {
     letter-spacing: 7px;
 }
 
-h1 {
+#landing h1 {
     font-family: 'Poiret One';
     color: white;
     letter-spacing: 5px;
     height: 2rem;
+    transition: all 2s;
+}
+
+#title {
+    margin-top: 2rem;
+    transform: translate(-100px);
+    opacity: 0;
 }
 
 .fa-brands, .fa-solid {
@@ -109,6 +133,21 @@ h1 {
 .logoContainer {
     text-align: center;
     margin: 2rem;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: all 2s;
+}
+
+.logoContainer svg {
+    width: 15vw;
+    stroke: white;
+    fill: white;
+    transition: filter 1s, transform 0.5s;
+}
+
+.logoContainer:hover svg {
+    filter: drop-shadow(0 0 1.5px rgb(255, 230, 0));
+    transform: rotate3d(1, -1, 0, -25deg);
 }
 
 .nav-item>a>img {
@@ -117,6 +156,7 @@ h1 {
 
 .logoContainer img {
     width: 250px;
+    transition: all 1s;
 }
 
 .socialMediaIcons {
@@ -138,6 +178,103 @@ h1 {
     width: 3em;
 }
 
+/* About Me Section */
+
+.aboutMeImage {
+    width: 35vw;
+    background-color: #464f5e;
+    height: 110vh;
+    transform: translateX(100px);
+    opacity: 0;
+    transition: all 1s;
+    -webkit-mask-image: linear-gradient(to right, white 30%, transparent);
+    mask-image: linear-gradient(to left, white 30%, transparent);
+}
+
+.aboutMeImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 75%;
+    overflow: hidden;
+}
+
+.aboutMeText {
+    width: 50vw;
+    margin-left: 2rem;
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 1s;
+}
+
+.aboutMeText h1 {
+    font-family: 'Rubik Mono One';
+    color: white;
+    letter-spacing: 4px;
+    text-align: right;
+    font-size: 2.5vw;
+}
+
+.aboutMeText h3 {
+    font-family: 'Poiret One';
+    color: white;
+    letter-spacing: 2px;
+    margin-top: 2rem;
+    font-size: 1.5vw;
+    text-align: right;
+}
+
+.aboutMeSkills {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.aboutMeSkills .skills-row {
+    margin-top: 1rem;
+}
+
+.aboutMeSkills .skills-row img {
+    scale: 0.8
+}
+
+.aboutMeSkills p {
+    margin-bottom: 1rem;
+    font-family: "Poiret One";
+    color: white;
+}
+
+/* Project Section: */
+
+.projects-grid {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1fr; 
+    gap: 1em 1em; 
+    grid-template-areas: 
+      ". ."
+      ". ."
+      ". ."; 
+    width: 80%; 
+    height: 80%;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+}
+
+.project-info {
+    margin-left: 2rem;
+}
+
+.project-image {
+    width: 50px;
+    height: 50px;
+}
+
 /* For mobile phones: */
 
 @media only screen and (max-width: 768px) {
@@ -150,5 +287,8 @@ h1 {
     }
     #landing {
         height: 80vh;
+    }
+    .socialMediaIcons>a {
+        margin: 0.5rem;
     }
 }
